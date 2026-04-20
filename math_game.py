@@ -5,9 +5,11 @@ num1, num2 = roll.get_numbers()
 print(f"{num1} + {num2} = ")
 answer = int(input("Sum: "))
 
-if answer == (num1 + num2):
-    print("CORRECT!")
-    
-else :
+while answer != (num1 + num2):
     print("Try again!")
     print(f"{num1} + {num2} = ")
+    answer = int(input("Sum: "))  
+
+else :
+    print("CORRECT!")
+    
