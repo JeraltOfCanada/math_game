@@ -2,12 +2,18 @@ import lib.unix_time_randomizer as roll
 
 num1, num2 = roll.get_numbers()
 
-print(f"{num1} + {num2} = ")
-answer = int(input("Sum: "))
+correct_answer = (num1 + num2)
+counter = 0
 
-if answer == (num1 + num2):
-    print("CORRECT!")
-    
-else :
-    print("Try again!")
+while True:
     print(f"{num1} + {num2} = ")
+    answer = int(input("Sum: "))
+    counter = counter + 1
+    if answer == correct_answer:
+        print("CORRECT!")
+        break
+    if answer != correct_answer and counter <= 5:
+        print("Try again!")
+    else:
+        print("You lost!")
+        break
