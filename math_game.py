@@ -1,4 +1,4 @@
-import lib.unix_time_randomizer as roll
+import utils.unix_time_randomizer as roll
 
 num1, num2 = roll.get_numbers()
 
