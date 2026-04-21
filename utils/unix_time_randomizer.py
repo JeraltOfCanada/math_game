@@ -2,28 +2,25 @@
 to create my own randomizer for fun and apply what I already know. """
 import time
 
+HIGHEST_SUM = 12
+
 def unix_time():
-    """ Returns the current time since unix epoch as a string to be indexed and
-    used as a randomizer. """
+    """ Returns the current time since unix epoch as a string. """
     current_time = time.time()
     return str(current_time)
 
 def get_numbers():
+    """ Creates 2 indices of unix_time and has a check to ensure sum of two
+     indices isn't higher than 12. """
     time_now = unix_time()
-
     randomized_number = time_now.replace(".", "")
-
-    number1 = int(randomized_number[-1])
+    num1 = int(randomized_number[-1])
     number2 = int(randomized_number[-7])
-
-    while (number1 == 0 or number2 == 0) or (number1 + number2 > 10):
-        time_now = unix_time()
-        randomized_number = time_now.replace(".", "")
-        number1 = int(randomized_number[-1])
-        number2 = int(randomized_number[-7])
-    return number1, number2
+    num2 = number2 % (HIGHEST_SUM - num1)
+    return num1, num2
 
 if __name__ == "__main__":
     num1, num2 = get_numbers()
+
     print(num1)
     print(num2)
